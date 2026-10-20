@@ -1,11 +1,33 @@
 # TFS alignment
 
-Digital twin of the MFX transfocator for developing alignment procedures offline.
+## Context
 
-**Goal:** focus at the interaction point, with every inserted lens centered on
-the beam (on the YAGs, the lens rings are centered and concentric).
+At MFX, the X-ray beam goes through a sequence of optical elements before it
+reaches the sample. In the schematic the beam travels from right to left, and
+distances are in metres from the sample.
 
-The twin puts together the two simulators we already have:
+![MFX schematic](docs/img/mfx_schematic.png)
+
+The last focusing element is the **transfocator** (TFS). It is a set of lenses.
+Each lens can be inserted into or removed from the beam and has its own x and y
+motor, and the whole set sits on a z stage that moves along the beam.
+
+Depending on the beam energy, a different subset of lenses is inserted, together
+with one prefocusing lens about 40 m upstream ("Lenses" in the schematic). The
+transfocator is then aligned:
+
+* **x, y:** each inserted lens is centered on the beam;
+* **z:** the stage is moved so the beam focuses on the sample.
+
+So far this has been done manually. The goal of this project is to automate
+this workflow. On the YAG screens, a well-aligned transfocator shows the lens
+rings centered and concentric, with the focus at the interaction point.
+
+## This repo
+
+A digital twin of the transfocator, for developing and testing alignment
+procedures offline before running them on the instrument. It puts together the
+two simulators we already have:
 
 * `twin.tfs`: the hutch-python `tfs` (`tfs.transfocator.Transfocator` from
   [pcdshub/mfx](https://github.com/pcdshub/mfx)) with fake PVs. Same API:
