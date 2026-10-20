@@ -1,0 +1,27 @@
+diff --git a/tfs/sim_transfocator.py b/tfs/sim_transfocator.py
+index aa83014..b47e7ea 100644
+--- a/tfs/sim_transfocator.py
++++ b/tfs/sim_transfocator.py
+@@ -3,7 +3,10 @@ from ophyd.sim import SynAxis, FakeEpicsSignal, make_fake_device
+ from tfs.transfocator import Transfocator
+ from tfs.lens import MFXLens as RealLens
+ 
+-class SimLens(RealLens):
++# Base on the fake device so every inherited component is fake too. Subclassing
++# RealLens directly left the x/y motors as real OnePVMotorRetry devices on
++# MFX:TFS:MMS:03..20, so moving a "simulated" lens could move the real one.
++class SimLens(make_fake_device(RealLens)):
+     _sig_z      = Cpt(FakeEpicsSignal,  ":Z",      auto_monitor=True)
+     _sig_radius = Cpt(FakeEpicsSignal,  ":RADIUS", auto_monitor=True)
+     _sig_focus  = Cpt(FakeEpicsSignal,  ":FOCUS",  auto_monitor=True)
+@@ -33,8 +36,8 @@ class Stage(SynAxis):
+         self._lenses = [
+             getattr(tfs_dev, nm)
+             for nm in tfs_dev.component_names
+-            if isinstance(getattr(tfs_dev, nm), SimLens)
+-        ]
++            if isinstance(getattr(tfs_dev, nm), SimLens) and ":TFS:" in getattr(tfs_dev, nm).prefix
++        ]  # the prefocus (DIA) lenses are in the XRT and do not ride on the TFS stage
+ 
+     def mv(self, value):
+         delta = (value - self.position) / 1000 # lenses z are in m.

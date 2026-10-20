@@ -1,0 +1,6 @@
+[submodule "external/mfx"]
+	path = external/mfx
+	url = https://github.com/pcdshub/mfx.git
+[submodule "external/lcls_beamline_toolbox"]
+	path = external/lcls_beamline_toolbox
+	url = https://github.com/mseaberg/lcls_beamline_toolbox.git
