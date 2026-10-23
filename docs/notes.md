@@ -20,8 +20,10 @@
 ## Tasks
 
 1. Automate *Align CRLs* in `protocols/`. In the model the aperture shows as a
-   dark ring on the YAG (see `img/aperture_clipping.png`), while total intensity
-   barely changes, so detect the edge from the image.
+   dark ring on the YAG (below), while total intensity barely changes, so
+   detect the edge from the image.
+
+   ![TFS:09 clipping on its aperture, seen on DG2 and DG3](img/aperture_clipping.png)
 2. Turn "rings centered and concentric" into a number computed from one image.
 3. Automate the z-stage focus scan.
 4. Combine them into one procedure, and test it over seeds, energies, noise and

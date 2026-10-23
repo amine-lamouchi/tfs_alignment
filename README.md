@@ -1,47 +1,15 @@
-# TFS alignment
+# MFX Digital Twin
 
-## Context
+A simulated MFX transfocator to develop and test automated alignment procedures.
 
-At MFX, the X-ray beam goes through a sequence of optical elements before it
-reaches the sample. In the schematic the beam travels from right to left, and
-distances are in metres from the sample.
+## What's in this repo
 
-![MFX schematic](docs/img/mfx_schematic.png)
+* `twin.tfs`: the hutch-python `tfs` with simulated motors, with the same API as on the instrument.
+* `twin.mfx_sim`: Matt Seaberg's wavefront model of the beamline, which gives the YAG images.
+* A 3D viewer of the beamline next to the YAG of your choice.
 
-The last focusing element is the **transfocator** (TFS). It is a set of lenses.
-Each lens can be inserted into or removed from the beam and has its own x and y
-motor, and the whole set sits on a z stage that moves along the beam.
-
-Depending on the beam energy, a different subset of lenses is inserted, together
-with one prefocusing lens about 40 m upstream ("Lenses" in the schematic). The
-transfocator is then aligned:
-
-* **x, y:** each inserted lens is centered on the beam;
-* **z:** the stage is moved so the beam focuses on the sample.
-
-So far this has been done manually. The goal of this project is to automate
-this workflow. On the YAG screens, a well-aligned transfocator shows the lens
-rings centered and concentric, with the focus at the interaction point.
-
-## This repo
-
-A digital twin of the transfocator, for developing and testing alignment
-procedures offline before running them on the instrument. It puts together the
-two simulators we already have:
-
-* `twin.tfs`: the hutch-python `tfs` (`tfs.transfocator.Transfocator` from
-  [pcdshub/mfx](https://github.com/pcdshub/mfx)) with fake PVs. Same API:
-  `tfs.find_best_combo`, `tfs.focus_at`, `tfs.translation.mv`, `tfs.tfs_05.x.mv`, ...
-* `twin.mfx_sim`: Matt's MFX wavefront model (`lcls_beamline_toolbox.models.mfx.MFX` from
-  [mseaberg/lcls_beamline_toolbox](https://github.com/mseaberg/lcls_beamline_toolbox)).
-  Same API: `twin.beamline.DG3_YAG.view_beam()`, `.profile`, `.cx`, `.wx`, ...
-
-Both are built from the same lens radii and positions, so they agree.
-
-Instrument documentation: [MFX Confluence](https://confluence.slac.stanford.edu/display/MFX/MFX@LCLS+Home)
-(see 2.3.1 Transfocator, Align CRLs, Calculate Transfocator Combinations).
-
-![TFS:09 clipping on its aperture, seen on DG2 and DG3](docs/img/aperture_clipping.png)
+Alignment protocols that only use `tfs` and `camera.get_image()` run unchanged on
+the instrument. Instrument documentation: [MFX Confluence](https://confluence.slac.stanford.edu/display/MFX/MFX@LCLS+Home).
 
 ## Install
 
