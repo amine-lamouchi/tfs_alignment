@@ -45,8 +45,8 @@ class DigitalTwin:
         # Positions as built by the model; we move devices along the beam from there.
         devices = [self.beamline.prefocus, self.beamline.MFX_IP, *self.mfx_sim.tfs_list]
         self._ref = {dev.name: (dev.get_pos().copy(), dev.z) for dev in devices}
-        # Source at tfs z=0 and IP at nominal_sample, as in tfs
-        self.mfx_sim.beam_params["z_source"] = Z_OFFSET
+        # IP at nominal_sample, as in tfs. The source stays where Matt's model puts it,
+        # 0.645 m upstream of tfs z=0 (tfs assumes z=0; the focus moves by ~0.2 mm).
         self._place(self.beamline.MFX_IP, self.geometry["nominal_sample"])
         self.set_energy(E0)
 
@@ -63,6 +63,10 @@ class DigitalTwin:
         self.mfx_sim.E0 = E0
         self.mfx_sim.beam_params["photonEnergy"] = E0
         self.mfx_sim.b1 = Beam(beam_params=self.mfx_sim.beam_params, suppress=True)
+
+    def _name(self, lens):
+        """tfs_sim_tfs_05 -> tfs_05"""
+        return lens.name.removeprefix(self.tfs.name + "_")
 
     def _place(self, device, z, dx=0.0, dy=0.0):
         """Put a model device at tfs z [m], off the beam axis by dx, dy [m]."""
@@ -85,7 +89,7 @@ class DigitalTwin:
         for name, crl in self.crls.items():
             lens = getattr(self.tfs, name)
             crl.roc = lens.radius * 1e-6
-            crl.diameter = aperture(lens.radius)
+            crl.diameter = aperture(name, lens.radius)
             crl.enable() if lens.inserted else crl.disable()
             self._place(crl, lens.z, *offsets[name])
         # The model has one prefocus lens; combine if several are inserted
@@ -94,7 +98,7 @@ class DigitalTwin:
         if inserted:
             radius = 1 / sum(1 / lens.radius for lens in inserted)
             prefocus.roc = radius * 1e-6
-            prefocus.diameter = aperture(min(lens.radius for lens in inserted))
+            prefocus.diameter = min(aperture(self._name(lens), lens.radius) for lens in inserted)
             prefocus.enable()
             self._place(prefocus, inserted[0].z)
         else:

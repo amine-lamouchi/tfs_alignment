@@ -42,3 +42,22 @@ def test_center_lens():
     assert np.hypot(*twin.lens_offsets()["tfs_06"]) > 20e-6
     center_lens(twin.tfs, twin.tfs.tfs_06, SimCamera(twin, "DG3_YAG"), verbose=False)
     assert np.hypot(*twin.lens_offsets()["tfs_06"]) < 5e-6
+
+
+def test_geometry_matches_matts_model():
+    # with the design geometry, tfs, the twin and Matt's untouched model agree
+    from lcls_beamline_toolbox.models.mfx import MFX
+
+    twin = DigitalTwin(9500, N=64, geometry=design_geometry(), misalignment=0)
+    for lens in twin.tfs.lenses:
+        lens.insert(wait=True)
+    twin.sync()
+    matt = MFX(9500, N=64).beamline
+    assert twin.beamline.MFX_IP.z == pytest.approx(matt.MFX_IP.z)
+    assert twin.tfs.nominal_sample + 624.645 == pytest.approx(matt.MFX_IP.z)
+    assert twin.tfs.prefocus_bot.z + 624.645 == pytest.approx(matt.prefocus.z)
+    assert twin.mfx_sim.beam_params["z_source"] == MFX(9500, N=64).beam_params["z_source"]
+    for name, crl in twin.crls.items():
+        original = getattr(matt, crl.name)
+        assert getattr(twin.tfs, name).z + 624.645 == pytest.approx(original.z)
+        assert crl.diameter == pytest.approx(original.diameter)

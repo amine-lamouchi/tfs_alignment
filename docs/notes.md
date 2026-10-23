@@ -36,10 +36,13 @@ Protocols should only use `tfs` and `camera.get_image()`. Grade them with
 
 * **Units** follow the control system: lens z in m from the source, radius in
   µm, stage and lens x/y in mm. Matt's model uses LCLS z = tfs z + 624.645 m.
-* **What the twin changes in Matt's model:** source position, IP position,
-  prefocus position and lens apertures are set to match `tfs`. Lens apertures
-  use 2R₀ = 63.2 µm·√R, fit to the Confluence table.
-* **Stage:** moves the 9 TFS lenses. The 3 prefocus lenses (XRT, 36 m upstream)
+* **Geometry reference:** Matt's model. With no snapshot, `tfs`, the twin and
+  the 3D view all use its positions and apertures: prefocus at 358.355 m and
+  sample at 400.195 m (`tfs` itself defaults to 360.0 and 400.37). The source
+  is 0.645 m upstream of `tfs` z=0, which moves the focus by ~0.2 mm. The two
+  prefocus lenses missing from the model use 2R₀ = 63.2 µm·√R (Confluence fit).
+  With a snapshot of the real instrument, `tfs` values win.
+* **Stage:** moves the 9 TFS lenses. The 3 prefocus lenses (XRT, 37 m upstream)
   don't move with it and have no x/y motors.
 * **Focus:** `tfs` (pcdscalc) and Matt's model (CXRO table) use different Be
   refractive indices. The focus differs by about 3 mm at 9.5 keV.

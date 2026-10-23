@@ -82,8 +82,19 @@ class SimLens(make_fake_device(MFXLens)):
 
 
 class SimPrefocusLens(SimLens):
+    """
+    Only one prefocus lens is in at a time, as tfs.focus_at assumes: inserting
+    one takes the others out. (To check with staff how the real ladder behaves.)
+    """
     x = Cpt(NoMotor, ":X", kind="omitted")
     y = Cpt(NoMotor, ":Y", kind="omitted")
+
+    def _do_move(self, state):
+        if state.name == "IN" and self.parent is not None:
+            for lens in self.parent.xrt_lenses:
+                lens._inserted.sim_put(0)
+                lens._removed.sim_put(1)
+        super()._do_move(state)
 
 
 class SimTransfocator(make_fake_device(Transfocator)):

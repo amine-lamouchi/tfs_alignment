@@ -1,7 +1,7 @@
 import json
 
 import pytest
-from ophyd.utils import LimitError
+from ophyd.utils import LimitError, ReadOnlyError
 from tfs.lens import LensConnect
 from tfs.offline_calculator import TFS_Calculator
 from tfs.transfocator import Transfocator
@@ -36,10 +36,12 @@ def test_prefocus_has_no_xy_motors(tfs):
 
 
 def test_stage_moves_only_tfs_lenses(tfs):
-    z_tfs, z_prefocus = tfs.tfs_05.z, tfs.prefocus_bot.z
+    z_tfs, z_prefocus = [lens.z for lens in tfs.tfs_lenses], tfs.prefocus_bot.z
     tfs.translation.mvr(-10.0)
-    assert tfs.tfs_05.z == pytest.approx(z_tfs - 0.010)
+    assert [lens.z for lens in tfs.tfs_lenses] == pytest.approx([z - 0.010 for z in z_tfs])  # all together
     assert tfs.prefocus_bot.z == z_prefocus
+    with pytest.raises(ReadOnlyError):  # a lens can't move in z on its own
+        tfs.tfs_05._sig_z.put(z_tfs[3])
     with pytest.raises(LimitError):
         tfs.translation.mv(400)
 
@@ -71,3 +73,12 @@ def test_matches_confluence(tfs):
     assert tfs.tfs_06.z == pytest.approx(395.665, abs=1e-3)
     assert tfs.tfs_09.z == pytest.approx(395.889, abs=1e-3)
     assert not TFS_Calculator(tfs.lenses).check_forbidden(750, energy=9551, radius=33.33)
+
+
+def test_one_prefocus_lens_at_a_time(tfs):
+    tfs.prefocus_mid.insert(wait=True)
+    tfs.prefocus_bot.insert(wait=True)  # takes prefocus_mid out
+    assert [lens.inserted for lens in tfs.xrt_lenses] == [False, False, True]
+    tfs.prefocus_mid.insert(wait=True)
+    tfs.focus_at(energy_eV=9500, wait=True)  # picks prefocus_bot
+    assert [lens.inserted for lens in tfs.xrt_lenses] == [False, False, True]

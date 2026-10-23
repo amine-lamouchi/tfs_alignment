@@ -7,21 +7,26 @@ name = "tfs_twin"
 version = "0.1.0"
 description = "Digital twin of the MFX transfocator (motor layer + wavefront diagnostics) for developing alignment protocols"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.10,<3.13"
+# Versions known to work together (tested with Python 3.11). Upper bounds keep
+# a fresh install from picking up a release that breaks the twin.
 dependencies = [
     # motor layer: what external/mfx/tfs imports
-    "ophyd",
-    "pcdsdevices",
-    "pcdscalc",
-    "periodictable",
-    "prettytable",
+    "ophyd~=1.11",
+    "pcdsdevices~=11.1",
+    "pcdscalc~=0.6",
+    "periodictable~=2.0",
+    "prettytable~=3.0",
     # forbidden-combination tables used by find_best_combo(avoid_forbidden=True) and track_focus
     "transfocate @ git+https://github.com/pcdshub/transfocate.git@17ab0593cd8f18626316bc848e11af24eda8bda1",
     # diagnostic layer: lcls_beamline_toolbox is installed from the submodule
     # (pip install -e external/lcls_beamline_toolbox), see README
-    "numpy",
-    "scipy<1.14",  # lcls_beamline_toolbox still uses interp2d (removed in 1.14)
-    "matplotlib",
+    "numpy>=1.24,<3",
+    "scipy>=1.10,<1.14",  # lcls_beamline_toolbox still uses interp2d (removed in 1.14)
+    "matplotlib>=3.7,<4",
+    # 3D view (tfs_twin.xrt_view). xrt is pinned exactly: the viewer patches xrtGlow internals.
+    "xrt==1.6.2",
+    "PyQt5~=5.15",
 ]
 
 [project.optional-dependencies]

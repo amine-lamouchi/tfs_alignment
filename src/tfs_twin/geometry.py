@@ -17,27 +17,35 @@ PREFOCUS_RADII = {"prefocus_top": 333.3, "prefocus_mid": 428.0, "prefocus_bot": 
 TFS_RADII = {"tfs_02": 500, "tfs_03": 300, "tfs_04": 250, "tfs_05": 200, "tfs_06": 125,
              "tfs_07": 62.5, "tfs_08": 50, "tfs_09": 50, "tfs_10": 50}
 
-# Matt's MFX model uses LCLS z: z_lcls = z + Z_OFFSET. This puts TFS:06 at
-# 1020.44 m (the model's TFS centre) with the stage at ~230 mm.
+# Matt's MFX model is the reference for the geometry. It uses LCLS z:
+# z_lcls = z + Z_OFFSET. This puts TFS:06 at 1020.44 m (the model's TFS centre)
+# with the stage at ~230 mm.
 Z_OFFSET = 624.645
 
+# Lens apertures (diameter, m) from Matt's model. The model has only the 750 um
+# prefocus lens; the other two use the fit 2*R0 = 63.2 um * sqrt(R), from the
+# "Working Transfocator Combinations" Confluence page.
+APERTURES = {"prefocus_bot": 1.6e-3, "tfs_02": 1.4e-3, "tfs_03": 1e-3, "tfs_04": 1e-3, "tfs_05": 0.88e-3,
+             "tfs_06": 0.623e-3, "tfs_07": 0.44e-3, "tfs_08": 0.44e-3, "tfs_09": 0.44e-3, "tfs_10": 0.44e-3}
 
-def aperture(radius):
-    """
-    Geometric aperture 2*R0 [m] of a lens of radius [um]. Fit to the table on
-    the "Working Transfocator Combinations" Confluence page.
-    """
-    return 63.2e-6 * radius ** 0.5
+
+def aperture(name, radius):
+    """Aperture diameter [m] of lens `name` with radius [um]."""
+    return APERTURES.get(name, 63.2e-6 * radius ** 0.5)
 
 
 def design_geometry():
-    """Readbacks from the real instrument (mfx#233, stage at 229.9945 mm)."""
-    lenses = {name: {"radius": radius, "z": 360.0} for name, radius in PREFOCUS_RADII.items()}
+    """
+    TFS lens z: readbacks from the real instrument (mfx#233, stage at 229.9945 mm),
+    which match Matt's model. Prefocus z and sample: Matt's model (983 m and
+    1024.84 m in LCLS z; tfs uses 360.0 and 400.37).
+    """
+    lenses = {name: {"radius": radius, "z": 983.0 - Z_OFFSET} for name, radius in PREFOCUS_RADII.items()}
     for i, (name, radius) in enumerate(TFS_RADII.items()):
         # lenses are 75 mm apart
         lenses[name] = {"radius": radius, "z": 395.49499 + 0.075 * i, "x": 0.0, "y": 0.0}
     return {"source": "design", "lenses": lenses, "inserted": [],
-            "stage": 229.9945, "stage_limits": [-0.409, 299.591], "nominal_sample": 400.37}
+            "stage": 229.9945, "stage_limits": [-0.409, 299.591], "nominal_sample": 1024.84 - Z_OFFSET}
 
 
 def read_geometry(tfs):
