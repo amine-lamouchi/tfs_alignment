@@ -35,9 +35,10 @@ class DigitalTwin:
         Seed for the hidden misalignment.
     """
 
-    def __init__(self, E0, N=256, geometry=None, misalignment=50e-6, seed=None, multi_beam=True):
+    def __init__(self, E0, N=256, geometry=None, misalignment=50e-6, seed=None, multi_beam=True,
+                 tfs_prefix="SIM:", tfs_name="tfs_sim"):
         self.geometry = geometry or load_geometry()
-        self.tfs = make_tfs_sim(geometry=self.geometry)
+        self.tfs = make_tfs_sim(geometry=self.geometry, prefix=tfs_prefix, name=tfs_name)
         self.mfx_sim = MFX(E0, N=N, multi_beam=multi_beam)
         self.beamline = self.mfx_sim.beamline
         self.crls = dict(zip(TFS_RADII, self.mfx_sim.tfs_list))  # tfs_02 -> tfs_2, ...

@@ -13,14 +13,15 @@ from ophyd import Component as Cpt
 from ophyd import Device, SoftPositioner
 from ophyd.signal import EpicsSignalBase
 from ophyd.sim import make_fake_device
+from pcdsdevices.interface import FltMvInterface
 from tfs.lens import MFXLens
 from tfs.transfocator import Transfocator
 
 from tfs_twin.geometry import TFS_RADII, load_geometry, read_geometry
 
 
-class SimMotor(SoftPositioner):
-    """Software motor with the mv/mvr/wm/mv_retry calls of the real lens motors."""
+class SimMotor(FltMvInterface, SoftPositioner):
+    """Software motor with the calls of the real motors: mv, mvr, umv, umvr, wm, mv_retry."""
 
     def __init__(self, prefix="", **kwargs):
         super().__init__(init_pos=0.0, **kwargs)
