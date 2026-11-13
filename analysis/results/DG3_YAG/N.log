@@ -1,0 +1,170 @@
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+N=32 noise=0: worst 51.5 -> 51.5 um  CRASH LinAlgError('SVD did not converge in Linear Least Squares') (0.0 s)
+N=48 noise=0: worst 51.5 -> 2.6 um (1.9 s)
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:726: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_x = np.polyfit(x_eff[int(beam.N/2),:][mask_x], total_phase[int(beam.N/2),:][mask_x], 2,
+/Users/slimbarkallah/Documents/slac/tfs_alignment/external/lcls_beamline_toolbox/lcls_beamline_toolbox/xraywavetrace/optics.py:729: RankWarning: Polyfit may be poorly conditioned
+  p_coeff_y = np.polyfit(y_eff[:,int(beam.M/2)][mask_y], total_phase[:,int(beam.M/2)][mask_y], 2,
+N=64 noise=0: worst 51.5 -> 2.7 um (2.1 s)
+N=96 noise=0: worst 51.5 -> 1.3 um (2.8 s)
+N=128 noise=0: worst 51.5 -> 1.5 um (4.0 s)
+N=160 noise=0: worst 51.5 -> 1.8 um (4.8 s)
+N=192 noise=0: worst 51.5 -> 2.2 um (6.3 s)
+N=256 noise=0: worst 51.5 -> 2.7 um (10.3 s)
+N=384 noise=0: worst 51.5 -> 2.3 um (21.5 s)
+N=512 noise=0: worst 51.5 -> 1.8 um (45.0 s)
+** On entry to DLASCL, parameter number  4 had an illegal value
+** On entry to DLASCL, parameter number  4 had an illegal value
