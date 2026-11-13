@@ -5,6 +5,7 @@ Two ways to center the TFS lenses on the beam, tested on the digital twin:
 1. **Baseline (centroid)**: [`protocols/center_lenses.py`](../protocols/center_lenses.py)
 2. **Ring method (aperture shadow)**: [`protocols/center_rings.py`](../protocols/center_rings.py)
 
+How each method works, step by step with figures: [protocols/README.md](../protocols/README.md).
 Both only use `tfs` and `camera.get_image()`, so they run unchanged on the instrument.
 Summary: the baseline works only for small misalignment (≤ 100 µm on DG2). The ring method works up to
 500 µm, but neither works yet at 14–15 keV on DG2.
@@ -129,14 +130,6 @@ The ring centre follows the lens in a straight line, ~0.25 pixel per µm, also f
 fails at 14–15 keV. But lenses that show no ring (tfs_02, and several lenses at 5–10 keV where the beam is
 small) are never moved. Next step: run the centroid finish only for lenses where no ring was found.
 
-### Not tested yet
-
-- ring method on DG3, and the seed and N sweeps;
-- ring method under the stress tests (beam jitter, rotated camera, low light);
-- a search when no ring is on the camera at the start;
-- like the baseline, it takes lenses out and puts them back, and assumes the camera is aligned with the
-  motors.
-
 ## Reproduce
 
 From the repo root, with the environment active (`source .venv/bin/activate`). Everything runs on your
@@ -155,9 +148,3 @@ machine, one process at a time; run times are on a laptop.
 
 Methods for `sweep.py --method`: `baseline`, `ring`, `ring_only`. Raw results: `results/<camera>/*.json`.
 
-## Open questions
-
-- What photon energies does MFX run, up to which maximum?
-- What centering tolerance does the focus actually need?
-- Can alignment use DG3 instead of DG2?
-- How much does the beam move between images on the instrument?
