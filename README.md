@@ -85,6 +85,7 @@ Oct 2025 and Matt's model for the rest of the beam line.
 src/tfs_twin/   geometry.py (lens values), motor_sim.py (offline tfs), twin.py (twin + camera),
                 xrt_view.py (3D view)
 protocols/      alignment procedures: your work goes here
+analysis/       tests of the protocols: sweeps, plots, GIFs; results in analysis/README.md
 notebooks/      quickstart
 tests/          pytest
 docs/           notes.md (background, tasks, things to know), viewer.md (3D view)
