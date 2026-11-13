@@ -1,5 +1,6 @@
 """
-GIF of the baseline protocol (protocols/center_lenses.py) on the twin.
+GIF of a centering protocol on the twin: the baseline (protocols/center_lenses.py) or, with
+--method ring, the ring method (protocols/center_rings.py, the fitted ring is drawn too).
 
 One frame per camera image the protocol takes: a wrapped camera records the
 viewer each time get_image() is called, so the protocol runs unchanged and you
@@ -12,6 +13,7 @@ the frames up to the crash are still saved.
     python record_baseline_gif.py gifs/baseline_protocol.gif --seed 7 --yag DG3_YAG --frame-ms 1500
     python record_baseline_gif.py gifs/misaligned_500um.gif --misalignment 5e-4 --yag DG3_YAG
     python record_baseline_gif.py gifs/misaligned_500um_DG2.gif --misalignment 5e-4 --yag DG2_YAG --camera DG2_YAG
+    python record_baseline_gif.py gifs/ring_misaligned_500um_DG2.gif --method ring --misalignment 5e-4 --yag DG2_YAG --camera DG2_YAG --width 800
     %run record_baseline_gif.py baseline_protocol.gif         # from a notebook (after %gui qt)
 """
 import argparse
@@ -20,19 +22,24 @@ import traceback
 
 logging.getLogger("tfs").setLevel(logging.CRITICAL)  # mute "TFS combo may be forbidden"
 
+from matplotlib.patches import Circle
 from PIL import ImageDraw, ImageFont
 
 from protocols.center_lenses import center_lenses, centroid
+from protocols.center_rings import center_lenses_ring, find_ring
 from tfs_twin import DigitalTwin, SimCamera
 from tfs_twin.xrt_view import glow
 from xrt.gui.commons import qt  # after tfs_twin.xrt_view, which stubs QtWebEngineWidgets
+
+METHODS = {"baseline": center_lenses, "ring": center_lenses_ring}
 
 
 class RecordingCamera:
     """Wraps a camera: each get_image() also records a frame of the viewer."""
 
-    def __init__(self, camera, viewer, twin, lenses, width=1600):
+    def __init__(self, camera, viewer, twin, lenses, width=1600, label="center_lenses", show_ring=False):
         self.camera, self.viewer, self.twin, self.width = camera, viewer, twin, width
+        self.label, self.show_ring = label, show_ring
         self.names = [twin._name(lens) for lens in lenses]
         self.frames = []
         self.target = None  # centroid of the last lens-out image: what the protocol aims for
@@ -42,7 +49,8 @@ class RecordingCamera:
         measured = centroid(image.copy())  # same function the protocol uses
         if not any(lens.inserted for lens in self.twin.tfs.tfs_lenses):
             self.target = measured  # lens-out reference image
-        self.snap(f"center_lenses: camera image {len(self.frames)} (camera on {self.camera.yag})", measured)
+        ring = find_ring(image) if self.show_ring else None  # same function the ring protocol uses
+        self.snap(f"{self.label}: camera image {len(self.frames)} (camera on {self.camera.yag})", measured, ring)
         return image
 
     def _um(self, col, row):
@@ -53,14 +61,22 @@ class RecordingCamera:
         y = ppm.y.min() + row * (ppm.y.max() - ppm.y.min()) / (nrow - 1)
         return x * 1e6, y * 1e6
 
-    def snap(self, title, measured=None):
+    def snap(self, title, measured=None, ring=None):
         self.viewer.refresh(force=True)
         if self.viewer.yag == self.camera.yag and self.viewer.figure.axes:
             ax = self.viewer.figure.axes[0]
+            limits = ax.get_xlim(), ax.get_ylim()  # the screen; markers and rings must not zoom out the view
+            if ring is not None:
+                ppm = getattr(self.twin.beamline, self.camera.yag)
+                um_per_px = (ppm.x.max() - ppm.x.min()) / (ppm.profile.shape[1] - 1) * 1e6
+                ax.add_patch(Circle(self._um(*ring[:2]), ring[2] * um_per_px, fill=False, color="#eb6834", lw=2))
+                ax.plot(*self._um(*ring[:2]), "x", ms=12, color="#eb6834", mew=2.5)
             if self.target is not None:
                 ax.plot(*self._um(*self.target), "o", ms=14, mfc="none", mec="lime", mew=2.5)
             if measured is not None:
                 ax.plot(*self._um(*measured), "+", ms=18, color="white", mew=2.5)
+            ax.set_xlim(limits[0])
+            ax.set_ylim(limits[1])
         frame = self.viewer.grab()
         frame = frame.resize((self.width, round(frame.height * self.width / frame.width)))
         lines = [title]
@@ -69,9 +85,11 @@ class RecordingCamera:
                 state = "in " if getattr(self.twin.tfs, name).inserted else "out"
                 lines.append(f"{name} {state}  dx {dx * 1e6:+7.1f} um  dy {dy * 1e6:+7.1f} um")
         if self.viewer.yag == self.camera.yag:
-            lines.append("+ measured centroid   o target (lens-out reference)")
+            lines.append("+ measured centroid   o target (lens-out reference)"
+                         + ("   orange: fitted ring" if self.show_ring else ""))
         draw = ImageDraw.Draw(frame)
-        draw.multiline_text((20, 20), "\n".join(lines), fill="white", font=ImageFont.load_default(size=22), spacing=8)
+        font = ImageFont.load_default(size=max(13, round(22 * self.width / 1600)))
+        draw.multiline_text((20, 20), "\n".join(lines), fill="white", font=font, spacing=6)
         self.frames.append(frame)
 
     def stamp(self, text):
@@ -82,28 +100,32 @@ class RecordingCamera:
 
 
 def record_baseline(path="baseline_protocol.gif", seed=3, yag="DG2_YAG", camera_yag="DG3_YAG", frame_ms=700,
-                    misalignment=50e-6, E0=9500, noise_seed=None):
+                    misalignment=50e-6, E0=9500, noise_seed=None, method="baseline", width=1600):
     """
     `yag`: shown next to the 3D view. `camera_yag`: where the protocol's camera is.
     `frame_ms`: how long each frame shows; the first and last frames stay up longer.
     `misalignment`: hidden lens offsets, within +/- this many metres (as in DigitalTwin).
     `E0`: photon energy in eV; lenses are chosen with focus_at for that energy.
     `noise_seed`: camera shot-noise seed, to repeat a run exactly (None: different every time).
+    `method`: "baseline" (center_lenses) or "ring" (center_lenses_ring, also draws the fitted ring).
+    `width`: GIF width in pixels.
     """
     twin = DigitalTwin(E0, N=256, misalignment=misalignment, seed=seed)
     tfs = twin.tfs
     tfs.focus_at(energy_eV=E0, wait=True)
     lenses = [lens for lens in tfs.tfs_lenses if lens.inserted]
 
+    protocol = METHODS[method]
     viewer = glow(twin, yag=yag, nrays=10000, size=(1200, 800), follow=False, block=False)
-    camera = RecordingCamera(SimCamera(twin, camera_yag, noise=True, seed=noise_seed), viewer, twin, lenses)
+    camera = RecordingCamera(SimCamera(twin, camera_yag, noise=True, seed=noise_seed), viewer, twin, lenses,
+                             width=width, label=protocol.__name__, show_ring=method == "ring")
     errors = []
 
     def record():
         try:
             camera.snap(f"before ({E0 / 1e3:g} keV)")
-            center_lenses(tfs, camera, lenses=lenses)
-            camera.snap(f"after center_lenses ({E0 / 1e3:g} keV)")
+            protocol(tfs, camera, lenses=lenses)
+            camera.snap(f"after {protocol.__name__} ({E0 / 1e3:g} keV)")
         except Exception as error:  # noqa: BLE001  (an exception inside a Qt callback would abort Python)
             traceback.print_exc()
             errors.append(error)
@@ -125,7 +147,7 @@ def record_baseline(path="baseline_protocol.gif", seed=3, yag="DG2_YAG", camera_
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="GIF of the baseline protocol on the twin.")
+    parser = argparse.ArgumentParser(description="GIF of a centering protocol on the twin.")
     parser.add_argument("path", nargs="?", default="baseline_protocol.gif")
     parser.add_argument("--seed", type=int, default=3, help="hidden misalignment (default 3)")
     parser.add_argument("--yag", default="DG2_YAG", help="YAG shown next to the 3D view (default DG2_YAG)")
@@ -134,6 +156,9 @@ if __name__ == "__main__":
     parser.add_argument("--camera", default="DG3_YAG", help="YAG the protocol's camera reads (default DG3_YAG)")
     parser.add_argument("--E0", type=float, default=9500, help="photon energy in eV (default 9500)")
     parser.add_argument("--noise-seed", type=int, default=None, help="camera noise seed, to repeat a run exactly")
+    parser.add_argument("--method", default="baseline", choices=list(METHODS), help="protocol (default baseline)")
+    parser.add_argument("--width", type=int, default=1600, help="GIF width in pixels (default 1600)")
     args = parser.parse_args()
     record_baseline(args.path, seed=args.seed, yag=args.yag, camera_yag=args.camera, frame_ms=args.frame_ms,
-                    misalignment=args.misalignment, E0=args.E0, noise_seed=args.noise_seed)
+                    misalignment=args.misalignment, E0=args.E0, noise_seed=args.noise_seed, method=args.method,
+                    width=args.width)
