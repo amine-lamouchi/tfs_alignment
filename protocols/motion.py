@@ -4,6 +4,7 @@ motors have no EPICS record and move instantly, so there is nothing to wait for 
 """
 import time
 
+import numpy as np
 from epics import caget
 
 
@@ -45,23 +46,30 @@ def remove(lens):
     wait_stopped(lens.y)
 
 
-def fresh_image(camera, timeout=10.0):
+def fresh_image(camera, average=5, timeout=10.0):
     """
-    An image taken after this call. A camera serves its latest frame, which can be from before the
-    last move, so wait for its frame counter to move on twice (the first new frame may have begun
-    before the call). The twin's camera has no PV and renders the present, so it is read at once.
+    The mean of `average` images taken after this call, against shot-to-shot noise. A camera serves
+    its latest frame, which can be from before the last move, so wait for its frame counter to move
+    on (the first new frame may have begun before the call, so it is skipped). The twin's camera has
+    no PV and renders the present, so its images are read at once.
     """
     pv = getattr(camera, "camera_pv", None)
     if pv is None:
-        return camera.get_image()
+        return np.mean([camera.get_image() for _ in range(average)], axis=0)
     counter = pv + ":IMAGE1:ArrayCounter_RBV"
-    start = caget(counter)
+    last = caget(counter) + 1
     deadline = time.monotonic() + timeout
-    while caget(counter) < start + 2:
+    frames = []
+    while len(frames) < average:
         if time.monotonic() > deadline:
-            raise TimeoutError(f"{pv}: no new frame in {timeout} s")
-        time.sleep(0.02)
-    return camera.get_image()
+            raise TimeoutError(f"{pv}: {len(frames)} new frames in {timeout} s")
+        count = caget(counter)
+        if count > last:
+            frames.append(camera.get_image().astype(float))
+            last = count
+        else:
+            time.sleep(0.01)
+    return np.mean(frames, axis=0)
 
 
 def readback(motor):
