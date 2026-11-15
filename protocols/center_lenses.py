@@ -13,7 +13,7 @@ gigE_camera_accessor). Assumes camera x/y are aligned with motor x/y.
 """
 import numpy as np
 
-from protocols.motion import fresh_image, insert, move, remove
+from protocols.motion import fresh_image, insert, move, readback, remove
 
 
 def centroid(image, threshold=0.1):
@@ -36,14 +36,14 @@ def center_lens(tfs, lens, camera, step=0.02, iterations=3, verbose=True):
 
     for i, motor in enumerate([lens.x, lens.y]):
         for _ in range(iterations):
-            start = motor.position
+            start = readback(motor)
             c0 = centroid(fresh_image(camera))[i]
             move(motor, start + step)
             c1 = centroid(fresh_image(camera))[i]
-            gain = (c1 - c0) / step  # pixels per mm
+            gain = (c1 - c0) / (readback(motor) - start)  # pixels per mm actually moved
             move(motor, start + (axis[i] - c0) / gain)
         if verbose:
-            print(f"{motor.name}: {motor.position:.4f}")
+            print(f"{motor.name}: {readback(motor):.4f}")
 
     for other in others:
         insert(other)

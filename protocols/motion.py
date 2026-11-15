@@ -62,3 +62,12 @@ def fresh_image(camera, timeout=10.0):
             raise TimeoutError(f"{pv}: no new frame in {timeout} s")
         time.sleep(0.02)
     return camera.get_image()
+
+
+def readback(motor):
+    """
+    Where the motor is. On MFX's lens motors `position` is the setpoint, so read the motor record's
+    readback (.RBV). The twin's motors are where they were told to go.
+    """
+    record = _record(motor)
+    return motor.position if record is None else float(caget(record + ".RBV"))
