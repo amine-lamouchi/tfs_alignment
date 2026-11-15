@@ -12,14 +12,14 @@ lens in, the lens is centered when its ring is centered on the beam axis:
 4. when no ring is left (the beam fits inside the aperture), finish with the
    centroid steps of center_lenses, with capped moves.
 
-Only uses `tfs` and `camera.get_image()`. Assumes camera x/y are aligned with
+Only uses `tfs` and the camera's images. Assumes camera x/y are aligned with
 motor x/y, and that the ring (or part of it) is on the camera to start with.
 """
 import numpy as np
 from scipy import ndimage
 
 from protocols.center_lenses import centroid
-from protocols.motion import insert, move, remove
+from protocols.motion import fresh_image, insert, move, remove
 
 
 def find_ring(image, line_width=9, contrast=0.3, min_pixels=40):
@@ -56,18 +56,18 @@ def center_lens_ring(tfs, lens, camera, step=0.05, max_move=0.2, iterations=6, f
         remove(other)
 
     remove(lens)
-    axis = centroid(camera.get_image())
+    axis = centroid(fresh_image(camera))
     insert(lens)
     motors = [lens.x, lens.y]
 
     # coarse: put the ring center on the axis
-    ring = find_ring(camera.get_image())
+    ring = find_ring(fresh_image(camera))
     if ring is not None:
         gains = []
         for i, motor in enumerate(motors):  # ring shift (pixels) per mm, one step per axis
             start = motor.position
             move(motor, start + step)
-            shifted = find_ring(camera.get_image())
+            shifted = find_ring(fresh_image(camera))
             move(motor, start)
             gains.append((shifted[i] - ring[i]) / step if shifted is not None else None)
         if verbose:
@@ -81,15 +81,15 @@ def center_lens_ring(tfs, lens, camera, step=0.05, max_move=0.2, iterations=6, f
             for i, motor in enumerate(motors):
                 step_to_axis = np.clip(error[i] / gains[i], -max_move, max_move)
                 move(motor, motor.position + step_to_axis)
-            ring = find_ring(camera.get_image())
+            ring = find_ring(fresh_image(camera))
 
     # fine: centroid steps as in center_lenses, but with capped moves
     for i, motor in enumerate(motors):
         for _ in range(fine_iterations):
             start = motor.position
-            c0 = centroid(camera.get_image())[i]
+            c0 = centroid(fresh_image(camera))[i]
             move(motor, start + fine_step)
-            c1 = centroid(camera.get_image())[i]
+            c1 = centroid(fresh_image(camera))[i]
             gain = (c1 - c0) / fine_step
             to_axis = (axis[i] - c0) / gain if gain else 0.0
             move(motor, start + np.clip(to_axis, -max_fine_move, max_fine_move))

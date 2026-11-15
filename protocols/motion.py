@@ -43,3 +43,22 @@ def remove(lens):
     """Remove and wait for y to stop, so nothing of the lens is left in the beam."""
     lens.remove(wait=True)
     wait_stopped(lens.y)
+
+
+def fresh_image(camera, timeout=10.0):
+    """
+    An image taken after this call. A camera serves its latest frame, which can be from before the
+    last move, so wait for its frame counter to move on twice (the first new frame may have begun
+    before the call). The twin's camera has no PV and renders the present, so it is read at once.
+    """
+    pv = getattr(camera, "camera_pv", None)
+    if pv is None:
+        return camera.get_image()
+    counter = pv + ":IMAGE1:ArrayCounter_RBV"
+    start = caget(counter)
+    deadline = time.monotonic() + timeout
+    while caget(counter) < start + 2:
+        if time.monotonic() > deadline:
+            raise TimeoutError(f"{pv}: no new frame in {timeout} s")
+        time.sleep(0.02)
+    return camera.get_image()

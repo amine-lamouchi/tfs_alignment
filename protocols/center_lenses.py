@@ -7,13 +7,13 @@ beam centroid on a downstream YAG moves linearly with the lens x/y motor:
 2. insert it, step the motor to measure centroid vs motor;
 3. move to where the centroid is back on the axis; repeat.
 
-Only uses `tfs` and `camera.get_image()`, so it runs the same on the twin and
-on the real instrument (with a gigE_camera_accessor). Assumes camera x/y are
-aligned with motor x/y.
+Only uses `tfs` and the camera's images (through protocols/motion.py), so it
+runs the same on the twin and on the real instrument (with a
+gigE_camera_accessor). Assumes camera x/y are aligned with motor x/y.
 """
 import numpy as np
 
-from protocols.motion import insert, move, remove
+from protocols.motion import fresh_image, insert, move, remove
 
 
 def centroid(image, threshold=0.1):
@@ -31,15 +31,15 @@ def center_lens(tfs, lens, camera, step=0.02, iterations=3, verbose=True):
         remove(other)
 
     remove(lens)
-    axis = centroid(camera.get_image())
+    axis = centroid(fresh_image(camera))
     insert(lens)
 
     for i, motor in enumerate([lens.x, lens.y]):
         for _ in range(iterations):
             start = motor.position
-            c0 = centroid(camera.get_image())[i]
+            c0 = centroid(fresh_image(camera))[i]
             move(motor, start + step)
-            c1 = centroid(camera.get_image())[i]
+            c1 = centroid(fresh_image(camera))[i]
             gain = (c1 - c0) / step  # pixels per mm
             move(motor, start + (axis[i] - c0) / gain)
         if verbose:
