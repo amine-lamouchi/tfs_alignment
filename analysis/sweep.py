@@ -11,7 +11,6 @@ Writes results/<camera>/<param>[_<method>].json after every run, so partial resu
 """
 import argparse
 import contextlib
-import functools
 import io
 import json
 import logging
@@ -31,7 +30,6 @@ HERE = Path(__file__).resolve().parent
 METHODS = {
     "baseline": center_lenses,
     "ring": center_lenses_ring,
-    "ring_only": functools.partial(center_lenses_ring, fine_iterations=0),  # ablation: no centroid finish
 }
 
 BASE = dict(E0=9500, N=256, misalignment=5e-5, seed=3)
@@ -69,7 +67,7 @@ if __name__ == "__main__":
     parser.add_argument("param", choices=list(SWEEPS))
     parser.add_argument("--camera", default="DG2_YAG", help="YAG the protocol's camera reads (default DG2_YAG)")
     parser.add_argument("--method", default="baseline", choices=list(METHODS),
-                        help="baseline (center_lenses), ring (center_lenses_ring) or ring_only (no centroid finish)")
+                        help="baseline (center_lenses) or ring (center_lenses_ring)")
     parser.add_argument("--resume", action="store_true", help="keep finished runs in the json, do only the rest")
     args = parser.parse_args()
     param = args.param

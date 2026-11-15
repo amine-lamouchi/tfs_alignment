@@ -146,5 +146,5 @@ machine, one process at a time; run times are on a laptop.
 | `python show_find_ring.py`, `python show_lens_off_beam.py` | the two image figures | ~15 s |
 | `python record_baseline_gif.py gifs/x.gif --misalignment 5e-4 --yag DG2_YAG --camera DG2_YAG` | a GIF (opens a window) | ~1 min |
 
-Methods for `sweep.py --method`: `baseline`, `ring`, `ring_only`. Raw results: `results/<camera>/*.json`.
+Methods for `sweep.py --method`: `baseline`, `ring`. Raw results: `results/<camera>/*.json`.
 

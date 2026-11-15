@@ -8,9 +8,9 @@ that the beam centroid hardly moves (where center_lenses fails). With only that
 lens in, the lens is centered when its ring is centered on the beam axis:
 1. remove the lens, record the centroid (the beam axis), as in center_lenses;
 2. insert it, find the ring, step each motor once to measure ring shift vs motor;
-3. move so the ring center lands on the axis (moves capped); repeat;
-4. when no ring is left (the beam fits inside the aperture), finish with the
-   centroid steps of center_lenses, with capped moves.
+3. move so the ring center lands on the axis (moves capped); repeat.
+With no ring (the beam fits inside the aperture) it says so and leaves the lens
+for center_lenses.
 
 Only uses `tfs` and the camera's images. Assumes camera x/y are aligned with
 motor x/y, and that the ring (or part of it) is on the camera to start with.
@@ -45,11 +45,10 @@ def find_ring(image, line_width=9, contrast=0.3, min_pixels=40):
     return np.array([c, r, radius])
 
 
-def center_lens_ring(tfs, lens, camera, step=0.05, max_move=0.2, iterations=6, fine_iterations=4,
-                     fine_step=0.02, max_fine_move=0.2, tolerance_px=1.0, verbose=True):
+def center_lens_ring(tfs, lens, camera, step=0.05, max_move=0.2, iterations=6, tolerance_px=1.0, verbose=True):
     """
-    Center `lens` (e.g. tfs.tfs_06) on the beam with its aperture ring, then a
-    few capped centroid steps. Steps and moves in motor units (mm).
+    Center `lens` (e.g. tfs.tfs_06) on the beam with its aperture ring. Steps and
+    moves in motor units (mm).
     """
     others = remove_others(tfs, lens)
 
@@ -58,8 +57,9 @@ def center_lens_ring(tfs, lens, camera, step=0.05, max_move=0.2, iterations=6, f
     insert(lens)
     motors = [lens.x, lens.y]
 
-    # coarse: put the ring center on the axis
     ring = find_ring(fresh_image(camera))
+    if ring is None and verbose:
+        print(f"{lens.name}: no ring, left as it is")
     if ring is not None:
         gains = []
         for i, motor in enumerate(motors):  # ring shift (pixels) per mm, one step per axis
@@ -81,19 +81,8 @@ def center_lens_ring(tfs, lens, camera, step=0.05, max_move=0.2, iterations=6, f
                 step_to_axis = np.clip(error[i] / gains[i], -max_move, max_move)
                 move(motor, readback(motor) + step_to_axis)
             ring = find_ring(fresh_image(camera))
-
-    # fine: centroid steps as in center_lenses, but with capped moves
-    for i, motor in enumerate(motors):
-        for _ in range(fine_iterations):
-            start = readback(motor)
-            c0 = centroid(fresh_image(camera))[i]
-            move(motor, start + fine_step)
-            c1 = centroid(fresh_image(camera))[i]
-            gain = (c1 - c0) / (readback(motor) - start)
-            to_axis = (axis[i] - c0) / gain if gain else 0.0
-            move(motor, start + np.clip(to_axis, -max_fine_move, max_fine_move))
         if verbose:
-            print(f"{motor.name}: {readback(motor):.4f}")
+            print(f"{lens.name}: x {readback(lens.x):.4f}, y {readback(lens.y):.4f}")
 
     put_back(others)
 

@@ -62,8 +62,7 @@ Parameters: window 9 px, contrast 30%, at least 40 pixels, beam mask 10% of the 
 2. Lens in: find its ring.
 3. **Calibrate**: move x then y by 50 µm, measure how far the ring moves.
 4. **Center**: move the ring's centre onto the target (≤ 0.2 mm per move), up to 6 times, until within 1 px.
-5. **Finish** with baseline centroid steps (moves ≤ 0.2 mm), for lenses with no ring (opening wider than
-   the beam).
+With no ring (opening wider than the beam) it says so and leaves the lens for the baseline.
 
 ## Results
 
