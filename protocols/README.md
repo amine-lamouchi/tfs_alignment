@@ -15,7 +15,8 @@ center_lenses_ring(tfs, camera, lenses=[lens for lens in tfs.tfs_lenses if lens.
 2. Lens in: move x by 20 µm and measure how far the centroid moves (the **gain**).
 3. Move so the centroid lands on the target. 3 times, then the same for y.
 
-Fails when the lens is far off: the centroid barely moves, so the gain is ~0 and the move is huge.
+Fails when the lens is far off: the centroid barely moves, so the gain is ~0 and the move would be huge.
+Each move is capped at 0.2 mm, so the lens stays within the motor's limits.
 
 **Works:** lenses up to ±50 µm off (`misalignment=5e-5`, DG2): all end within ~5 µm. +: centroid, o: target.
 
