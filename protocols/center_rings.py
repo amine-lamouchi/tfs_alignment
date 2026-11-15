@@ -19,6 +19,7 @@ import numpy as np
 from scipy import ndimage
 
 from protocols.center_lenses import centroid
+from protocols.motion import move
 
 
 def find_ring(image, line_width=9, contrast=0.3, min_pixels=40):
@@ -65,9 +66,9 @@ def center_lens_ring(tfs, lens, camera, step=0.05, max_move=0.2, iterations=6, f
         gains = []
         for i, motor in enumerate(motors):  # ring shift (pixels) per mm, one step per axis
             start = motor.position
-            motor.mv(start + step)
+            move(motor, start + step)
             shifted = find_ring(camera.get_image())
-            motor.mv(start)
+            move(motor, start)
             gains.append((shifted[i] - ring[i]) / step if shifted is not None else None)
         if verbose:
             print(f"{lens.name}: ring found, gain {gains} px/mm")
@@ -78,8 +79,8 @@ def center_lens_ring(tfs, lens, camera, step=0.05, max_move=0.2, iterations=6, f
             if np.all(np.abs(error) < tolerance_px):
                 break
             for i, motor in enumerate(motors):
-                move = np.clip(error[i] / gains[i], -max_move, max_move)
-                motor.mv(motor.position + move)
+                step_to_axis = np.clip(error[i] / gains[i], -max_move, max_move)
+                move(motor, motor.position + step_to_axis)
             ring = find_ring(camera.get_image())
 
     # fine: centroid steps as in center_lenses, but with capped moves
@@ -87,11 +88,11 @@ def center_lens_ring(tfs, lens, camera, step=0.05, max_move=0.2, iterations=6, f
         for _ in range(fine_iterations):
             start = motor.position
             c0 = centroid(camera.get_image())[i]
-            motor.mv(start + fine_step)
+            move(motor, start + fine_step)
             c1 = centroid(camera.get_image())[i]
             gain = (c1 - c0) / fine_step
-            move = (axis[i] - c0) / gain if gain else 0.0
-            motor.mv(start + np.clip(move, -max_fine_move, max_fine_move))
+            to_axis = (axis[i] - c0) / gain if gain else 0.0
+            move(motor, start + np.clip(to_axis, -max_fine_move, max_fine_move))
         if verbose:
             print(f"{motor.name}: {motor.position:.4f}")
 

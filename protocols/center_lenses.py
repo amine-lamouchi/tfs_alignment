@@ -13,6 +13,8 @@ aligned with motor x/y.
 """
 import numpy as np
 
+from protocols.motion import move
+
 
 def centroid(image, threshold=0.1):
     """Centroid (col, row) in pixels, after background subtraction and threshold."""
@@ -36,10 +38,10 @@ def center_lens(tfs, lens, camera, step=0.02, iterations=3, verbose=True):
         for _ in range(iterations):
             start = motor.position
             c0 = centroid(camera.get_image())[i]
-            motor.mv(start + step)
+            move(motor, start + step)
             c1 = centroid(camera.get_image())[i]
             gain = (c1 - c0) / step  # pixels per mm
-            motor.mv(start + (axis[i] - c0) / gain)
+            move(motor, start + (axis[i] - c0) / gain)
         if verbose:
             print(f"{motor.name}: {motor.position:.4f}")
 
