@@ -79,3 +79,22 @@ def readback(motor):
     """
     record = _record(motor)
     return motor.position if record is None else float(caget(record + ".RBV"))
+
+
+def remove_others(tfs, lens):
+    """
+    Remove every TFS lens but `lens` that is not out, and return {lens: y} for each one removed. A
+    centered lens can sit outside its IN window, where `inserted` reads False though it is in the
+    beam, so a lens counts as in unless it reads `removed`.
+    """
+    removed = {other: readback(other.y) for other in tfs.tfs_lenses if other is not lens and not other.removed}
+    for other in removed:
+        remove(other)
+    return removed
+
+
+def put_back(removed):
+    """Insert each lens and move it back to the y it had, so it keeps its centering."""
+    for lens, y in removed.items():
+        insert(lens)
+        move(lens.y, y)

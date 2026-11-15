@@ -13,7 +13,7 @@ gigE_camera_accessor). Assumes camera x/y are aligned with motor x/y.
 """
 import numpy as np
 
-from protocols.motion import fresh_image, insert, move, readback, remove
+from protocols.motion import fresh_image, insert, move, put_back, readback, remove, remove_others
 
 
 def centroid(image, threshold=0.1):
@@ -26,9 +26,7 @@ def centroid(image, threshold=0.1):
 
 def center_lens(tfs, lens, camera, step=0.02, iterations=3, verbose=True):
     """Center `lens` (e.g. tfs.tfs_05) on the beam. `step` in motor units (mm)."""
-    others = [other for other in tfs.tfs_lenses if other.inserted and other is not lens]
-    for other in others:
-        remove(other)
+    others = remove_others(tfs, lens)
 
     remove(lens)
     axis = centroid(fresh_image(camera))
@@ -45,8 +43,7 @@ def center_lens(tfs, lens, camera, step=0.02, iterations=3, verbose=True):
         if verbose:
             print(f"{motor.name}: {readback(motor):.4f}")
 
-    for other in others:
-        insert(other)
+    put_back(others)
 
 
 def center_lenses(tfs, camera, lenses=None, **kwargs):

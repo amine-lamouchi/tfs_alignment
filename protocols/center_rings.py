@@ -19,7 +19,7 @@ import numpy as np
 from scipy import ndimage
 
 from protocols.center_lenses import centroid
-from protocols.motion import fresh_image, insert, move, readback, remove
+from protocols.motion import fresh_image, insert, move, put_back, readback, remove, remove_others
 
 
 def find_ring(image, line_width=9, contrast=0.3, min_pixels=40):
@@ -51,9 +51,7 @@ def center_lens_ring(tfs, lens, camera, step=0.05, max_move=0.2, iterations=6, f
     Center `lens` (e.g. tfs.tfs_06) on the beam with its aperture ring, then a
     few capped centroid steps. Steps and moves in motor units (mm).
     """
-    others = [other for other in tfs.tfs_lenses if other.inserted and other is not lens]
-    for other in others:
-        remove(other)
+    others = remove_others(tfs, lens)
 
     remove(lens)
     axis = centroid(fresh_image(camera))
@@ -97,8 +95,7 @@ def center_lens_ring(tfs, lens, camera, step=0.05, max_move=0.2, iterations=6, f
         if verbose:
             print(f"{motor.name}: {readback(motor):.4f}")
 
-    for other in others:
-        insert(other)
+    put_back(others)
 
 
 def center_lenses_ring(tfs, camera, lenses=None, **kwargs):
