@@ -31,3 +31,15 @@ def move(motor, target):
     """Move and wait until the motor has stopped."""
     motor.mv(target, wait=True)
     wait_stopped(motor)
+
+
+def insert(lens):
+    """Insert and wait for y to stop: insert(wait=True) returns once the IOC reads In, before y stops."""
+    lens.insert(wait=True)
+    wait_stopped(lens.y)
+
+
+def remove(lens):
+    """Remove and wait for y to stop, so nothing of the lens is left in the beam."""
+    lens.remove(wait=True)
+    wait_stopped(lens.y)

@@ -13,7 +13,7 @@ aligned with motor x/y.
 """
 import numpy as np
 
-from protocols.motion import move
+from protocols.motion import insert, move, remove
 
 
 def centroid(image, threshold=0.1):
@@ -28,11 +28,11 @@ def center_lens(tfs, lens, camera, step=0.02, iterations=3, verbose=True):
     """Center `lens` (e.g. tfs.tfs_05) on the beam. `step` in motor units (mm)."""
     others = [other for other in tfs.tfs_lenses if other.inserted and other is not lens]
     for other in others:
-        other.remove(wait=True)
+        remove(other)
 
-    lens.remove(wait=True)
+    remove(lens)
     axis = centroid(camera.get_image())
-    lens.insert(wait=True)
+    insert(lens)
 
     for i, motor in enumerate([lens.x, lens.y]):
         for _ in range(iterations):
@@ -46,7 +46,7 @@ def center_lens(tfs, lens, camera, step=0.02, iterations=3, verbose=True):
             print(f"{motor.name}: {motor.position:.4f}")
 
     for other in others:
-        other.insert(wait=True)
+        insert(other)
 
 
 def center_lenses(tfs, camera, lenses=None, **kwargs):
