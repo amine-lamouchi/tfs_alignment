@@ -98,3 +98,19 @@ def put_back(removed):
     for lens, y in removed.items():
         insert(lens)
         move(lens.y, y)
+
+
+def one_at_a_time(tfs, lenses, center_one):
+    """
+    Center each of `lenses` with `center_one(lens)` alone in the beam, then put them all in at their
+    centered y. Every lens starts from all-out and goes back out after, so the ladders move once per
+    lens instead of every other lens moving out and back for each one. Lenses that were in and not
+    in `lenses` go back to the y they had.
+    """
+    taken_out = remove_others(tfs, None)
+    centered = {}
+    for lens in lenses:
+        center_one(lens)
+        centered[lens] = readback(lens.y)
+        remove(lens)
+    put_back({**taken_out, **centered})

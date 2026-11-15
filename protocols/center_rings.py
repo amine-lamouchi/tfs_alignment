@@ -19,7 +19,7 @@ import numpy as np
 from scipy import ndimage
 
 from protocols.center_lenses import centroid
-from protocols.motion import fresh_image, insert, move, put_back, readback, remove, remove_others
+from protocols.motion import fresh_image, insert, move, one_at_a_time, put_back, readback, remove, remove_others
 
 
 def find_ring(image, line_width=9, contrast=0.3, min_pixels=40):
@@ -88,6 +88,5 @@ def center_lens_ring(tfs, lens, camera, step=0.05, max_move=0.2, iterations=6, t
 
 
 def center_lenses_ring(tfs, camera, lenses=None, **kwargs):
-    """Center every lens in `lenses` (default: all TFS lenses) with center_lens_ring."""
-    for lens in lenses or tfs.tfs_lenses:
-        center_lens_ring(tfs, lens, camera, **kwargs)
+    """Center every lens in `lenses` (default: all TFS lenses) with center_lens_ring, one at a time, then put them all in."""
+    one_at_a_time(tfs, lenses or tfs.tfs_lenses, lambda lens: center_lens_ring(tfs, lens, camera, **kwargs))

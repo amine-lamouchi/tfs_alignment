@@ -13,7 +13,7 @@ gigE_camera_accessor). Assumes camera x/y are aligned with motor x/y.
 """
 import numpy as np
 
-from protocols.motion import fresh_image, insert, move, put_back, readback, remove, remove_others
+from protocols.motion import fresh_image, insert, move, one_at_a_time, put_back, readback, remove, remove_others
 
 
 def centroid(image, threshold=0.1):
@@ -53,6 +53,5 @@ def center_lens(tfs, lens, camera, step=0.02, iterations=3, max_move=0.2, verbos
 
 
 def center_lenses(tfs, camera, lenses=None, **kwargs):
-    """Center every lens in `lenses` (default: all TFS lenses)."""
-    for lens in lenses or tfs.tfs_lenses:
-        center_lens(tfs, lens, camera, **kwargs)
+    """Center every lens in `lenses` (default: all TFS lenses), one at a time, then put them all in."""
+    one_at_a_time(tfs, lenses or tfs.tfs_lenses, lambda lens: center_lens(tfs, lens, camera, **kwargs))

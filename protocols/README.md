@@ -1,12 +1,13 @@
 # Centering protocols
 
-Both center **one lens at a time** (the others are taken out) using only `tfs` and `camera.get_image()`,
-so they run unchanged on the instrument. Results: [analysis/README.md](../analysis/README.md).
+Both center **one lens at a time** from all lenses out, then put them all in at their centered position,
+using only `tfs` and the camera's images (`protocols/motion.py` waits for MFX's motors and camera), so they
+run unchanged on the instrument. Results: [analysis/README.md](../analysis/README.md).
 
 ```python
 from protocols.center_lenses import center_lenses          # 1. baseline
 from protocols.center_rings import center_lenses_ring      # 2. ring method
-center_lenses_ring(tfs, camera, lenses=[lens for lens in tfs.tfs_lenses if lens.inserted])
+center_lenses_ring(tfs, camera, lenses=[lens for lens in tfs.tfs_lenses if not lens.removed])
 ```
 
 ## 1. Baseline: `center_lenses.py`
