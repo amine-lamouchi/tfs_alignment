@@ -1,0 +1,312 @@
+[
+ {
+  "param": "N",
+  "value": 32,
+  "noise_seed": 0,
+  "inputs": {
+   "E0": 9500,
+   "N": 32,
+   "misalignment": 5e-05,
+   "seed": 3
+  },
+  "camera": "DG3_YAG",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 51.453534465544756,
+  "after_um": 51.453534465544756,
+  "before_per_lens": {
+   "tfs_02": 49.087200177538534,
+   "tfs_06": 45.19687468784431,
+   "tfs_09": 51.453534465544756
+  },
+  "after_per_lens": {
+   "tfs_02": 49.087200177538534,
+   "tfs_06": 45.19687468784431,
+   "tfs_09": 51.453534465544756
+  },
+  "crash": "LinAlgError('SVD did not converge in Linear Least Squares')",
+  "seconds": 0.0
+ },
+ {
+  "param": "N",
+  "value": 48,
+  "noise_seed": 0,
+  "inputs": {
+   "E0": 9500,
+   "N": 48,
+   "misalignment": 5e-05,
+   "seed": 3
+  },
+  "camera": "DG3_YAG",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 51.453534465544756,
+  "after_um": 2.6114979934382263,
+  "before_per_lens": {
+   "tfs_02": 49.087200177538534,
+   "tfs_06": 45.19687468784431,
+   "tfs_09": 51.453534465544756
+  },
+  "after_per_lens": {
+   "tfs_02": 2.1435241128423104,
+   "tfs_06": 2.4457571189797522,
+   "tfs_09": 2.6114979934382263
+  },
+  "crash": null,
+  "seconds": 1.9
+ },
+ {
+  "param": "N",
+  "value": 64,
+  "noise_seed": 0,
+  "inputs": {
+   "E0": 9500,
+   "N": 64,
+   "misalignment": 5e-05,
+   "seed": 3
+  },
+  "camera": "DG3_YAG",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 51.453534465544756,
+  "after_um": 2.703335513861793,
+  "before_per_lens": {
+   "tfs_02": 49.087200177538534,
+   "tfs_06": 45.19687468784431,
+   "tfs_09": 51.453534465544756
+  },
+  "after_per_lens": {
+   "tfs_02": 2.703335513861793,
+   "tfs_06": 2.114427255342396,
+   "tfs_09": 2.073765505155981
+  },
+  "crash": null,
+  "seconds": 2.1
+ },
+ {
+  "param": "N",
+  "value": 96,
+  "noise_seed": 0,
+  "inputs": {
+   "E0": 9500,
+   "N": 96,
+   "misalignment": 5e-05,
+   "seed": 3
+  },
+  "camera": "DG3_YAG",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 51.453534465544756,
+  "after_um": 1.2637068856728424,
+  "before_per_lens": {
+   "tfs_02": 49.087200177538534,
+   "tfs_06": 45.19687468784431,
+   "tfs_09": 51.453534465544756
+  },
+  "after_per_lens": {
+   "tfs_02": 0.6792288965674217,
+   "tfs_06": 1.2637068856728424,
+   "tfs_09": 0.9309467658419236
+  },
+  "crash": null,
+  "seconds": 2.8
+ },
+ {
+  "param": "N",
+  "value": 128,
+  "noise_seed": 0,
+  "inputs": {
+   "E0": 9500,
+   "N": 128,
+   "misalignment": 5e-05,
+   "seed": 3
+  },
+  "camera": "DG3_YAG",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 51.453534465544756,
+  "after_um": 1.460117512779291,
+  "before_per_lens": {
+   "tfs_02": 49.087200177538534,
+   "tfs_06": 45.19687468784431,
+   "tfs_09": 51.453534465544756
+  },
+  "after_per_lens": {
+   "tfs_02": 1.460117512779291,
+   "tfs_06": 0.4776078996533655,
+   "tfs_09": 0.42532658603314916
+  },
+  "crash": null,
+  "seconds": 4.0
+ },
+ {
+  "param": "N",
+  "value": 160,
+  "noise_seed": 0,
+  "inputs": {
+   "E0": 9500,
+   "N": 160,
+   "misalignment": 5e-05,
+   "seed": 3
+  },
+  "camera": "DG3_YAG",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 51.453534465544756,
+  "after_um": 1.8435972073536093,
+  "before_per_lens": {
+   "tfs_02": 49.087200177538534,
+   "tfs_06": 45.19687468784431,
+   "tfs_09": 51.453534465544756
+  },
+  "after_per_lens": {
+   "tfs_02": 1.8435972073536093,
+   "tfs_06": 1.3726733774464066,
+   "tfs_09": 1.6931518553379246
+  },
+  "crash": null,
+  "seconds": 4.8
+ },
+ {
+  "param": "N",
+  "value": 192,
+  "noise_seed": 0,
+  "inputs": {
+   "E0": 9500,
+   "N": 192,
+   "misalignment": 5e-05,
+   "seed": 3
+  },
+  "camera": "DG3_YAG",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 51.453534465544756,
+  "after_um": 2.184734739831027,
+  "before_per_lens": {
+   "tfs_02": 49.087200177538534,
+   "tfs_06": 45.19687468784431,
+   "tfs_09": 51.453534465544756
+  },
+  "after_per_lens": {
+   "tfs_02": 2.184734739831027,
+   "tfs_06": 1.18698321588494,
+   "tfs_09": 1.1959357892182327
+  },
+  "crash": null,
+  "seconds": 6.3
+ },
+ {
+  "param": "N",
+  "value": 256,
+  "noise_seed": 0,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 5e-05,
+   "seed": 3
+  },
+  "camera": "DG3_YAG",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 51.453534465544756,
+  "after_um": 2.6759179291435102,
+  "before_per_lens": {
+   "tfs_02": 49.087200177538534,
+   "tfs_06": 45.19687468784431,
+   "tfs_09": 51.453534465544756
+  },
+  "after_per_lens": {
+   "tfs_02": 2.6759179291435102,
+   "tfs_06": 1.2346010453989096,
+   "tfs_09": 1.3564328795857055
+  },
+  "crash": null,
+  "seconds": 10.3
+ },
+ {
+  "param": "N",
+  "value": 384,
+  "noise_seed": 0,
+  "inputs": {
+   "E0": 9500,
+   "N": 384,
+   "misalignment": 5e-05,
+   "seed": 3
+  },
+  "camera": "DG3_YAG",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 51.453534465544756,
+  "after_um": 2.2557470848388372,
+  "before_per_lens": {
+   "tfs_02": 49.087200177538534,
+   "tfs_06": 45.19687468784431,
+   "tfs_09": 51.453534465544756
+  },
+  "after_per_lens": {
+   "tfs_02": 2.2557470848388372,
+   "tfs_06": 1.1941529885848887,
+   "tfs_09": 1.1938182120863678
+  },
+  "crash": null,
+  "seconds": 21.5
+ },
+ {
+  "param": "N",
+  "value": 512,
+  "noise_seed": 0,
+  "inputs": {
+   "E0": 9500,
+   "N": 512,
+   "misalignment": 5e-05,
+   "seed": 3
+  },
+  "camera": "DG3_YAG",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 51.453534465544756,
+  "after_um": 1.8302485999211846,
+  "before_per_lens": {
+   "tfs_02": 49.087200177538534,
+   "tfs_06": 45.19687468784431,
+   "tfs_09": 51.453534465544756
+  },
+  "after_per_lens": {
+   "tfs_02": 1.8302485999211846,
+   "tfs_06": 1.0214875231235325,
+   "tfs_09": 1.2243316701051519
+  },
+  "crash": null,
+  "seconds": 45.0
+ }
+]

@@ -1,0 +1,1250 @@
+[
+ {
+  "param": "misalignment",
+  "value": 1e-05,
+  "noise_seed": 0,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 1e-05,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 10.29070689310895,
+  "after_um": 9.817440035507706,
+  "before_per_lens": {
+   "tfs_02": 9.817440035507706,
+   "tfs_06": 9.03937493756886,
+   "tfs_09": 10.29070689310895
+  },
+  "after_per_lens": {
+   "tfs_02": 9.817440035507706,
+   "tfs_06": 1.2975106573295223,
+   "tfs_09": 1.7522627797387291
+  },
+  "crash": null,
+  "seconds": 2.2
+ },
+ {
+  "param": "misalignment",
+  "value": 1e-05,
+  "noise_seed": 1,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 1e-05,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 10.29070689310895,
+  "after_um": 9.817440035507706,
+  "before_per_lens": {
+   "tfs_02": 9.817440035507706,
+   "tfs_06": 9.03937493756886,
+   "tfs_09": 10.29070689310895
+  },
+  "after_per_lens": {
+   "tfs_02": 9.817440035507706,
+   "tfs_06": 1.2419764665063981,
+   "tfs_09": 1.7353806210037659
+  },
+  "crash": null,
+  "seconds": 2.3
+ },
+ {
+  "param": "misalignment",
+  "value": 1e-05,
+  "noise_seed": 2,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 1e-05,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 10.29070689310895,
+  "after_um": 9.817440035507706,
+  "before_per_lens": {
+   "tfs_02": 9.817440035507706,
+   "tfs_06": 9.03937493756886,
+   "tfs_09": 10.29070689310895
+  },
+  "after_per_lens": {
+   "tfs_02": 9.817440035507706,
+   "tfs_06": 1.196792907727017,
+   "tfs_09": 1.799334306400453
+  },
+  "crash": null,
+  "seconds": 2.2
+ },
+ {
+  "param": "misalignment",
+  "value": 2.5e-05,
+  "noise_seed": 0,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 2.5e-05,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 25.726767232772378,
+  "after_um": 24.543600088769267,
+  "before_per_lens": {
+   "tfs_02": 24.543600088769267,
+   "tfs_06": 22.598437343922154,
+   "tfs_09": 25.726767232772378
+  },
+  "after_per_lens": {
+   "tfs_02": 24.543600088769267,
+   "tfs_06": 0.664489022761228,
+   "tfs_09": 0.6808924542895944
+  },
+  "crash": null,
+  "seconds": 2.2
+ },
+ {
+  "param": "misalignment",
+  "value": 2.5e-05,
+  "noise_seed": 1,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 2.5e-05,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 25.726767232772378,
+  "after_um": 24.543600088769267,
+  "before_per_lens": {
+   "tfs_02": 24.543600088769267,
+   "tfs_06": 22.598437343922154,
+   "tfs_09": 25.726767232772378
+  },
+  "after_per_lens": {
+   "tfs_02": 24.543600088769267,
+   "tfs_06": 0.5525751605567747,
+   "tfs_09": 0.8108353468149615
+  },
+  "crash": null,
+  "seconds": 2.2
+ },
+ {
+  "param": "misalignment",
+  "value": 2.5e-05,
+  "noise_seed": 2,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 2.5e-05,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 25.726767232772378,
+  "after_um": 24.543600088769267,
+  "before_per_lens": {
+   "tfs_02": 24.543600088769267,
+   "tfs_06": 22.598437343922154,
+   "tfs_09": 25.726767232772378
+  },
+  "after_per_lens": {
+   "tfs_02": 24.543600088769267,
+   "tfs_06": 0.58986576549776,
+   "tfs_09": 0.7703334596304896
+  },
+  "crash": null,
+  "seconds": 2.2
+ },
+ {
+  "param": "misalignment",
+  "value": 5e-05,
+  "noise_seed": 0,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 5e-05,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 51.453534465544756,
+  "after_um": 49.087200177538534,
+  "before_per_lens": {
+   "tfs_02": 49.087200177538534,
+   "tfs_06": 45.19687468784431,
+   "tfs_09": 51.453534465544756
+  },
+  "after_per_lens": {
+   "tfs_02": 49.087200177538534,
+   "tfs_06": 0.880763681213493,
+   "tfs_09": 2.5945935595203453
+  },
+  "crash": null,
+  "seconds": 2.2
+ },
+ {
+  "param": "misalignment",
+  "value": 5e-05,
+  "noise_seed": 1,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 5e-05,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 51.453534465544756,
+  "after_um": 49.087200177538534,
+  "before_per_lens": {
+   "tfs_02": 49.087200177538534,
+   "tfs_06": 45.19687468784431,
+   "tfs_09": 51.453534465544756
+  },
+  "after_per_lens": {
+   "tfs_02": 49.087200177538534,
+   "tfs_06": 0.8161641947830799,
+   "tfs_09": 2.5577582561118524
+  },
+  "crash": null,
+  "seconds": 2.2
+ },
+ {
+  "param": "misalignment",
+  "value": 5e-05,
+  "noise_seed": 2,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 5e-05,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 51.453534465544756,
+  "after_um": 49.087200177538534,
+  "before_per_lens": {
+   "tfs_02": 49.087200177538534,
+   "tfs_06": 45.19687468784431,
+   "tfs_09": 51.453534465544756
+  },
+  "after_per_lens": {
+   "tfs_02": 49.087200177538534,
+   "tfs_06": 0.853163561306809,
+   "tfs_09": 2.524750461452312
+  },
+  "crash": null,
+  "seconds": 2.2
+ },
+ {
+  "param": "misalignment",
+  "value": 7.5e-05,
+  "noise_seed": 0,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 7.5e-05,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 77.18030169831711,
+  "after_um": 73.63080026630779,
+  "before_per_lens": {
+   "tfs_02": 73.63080026630779,
+   "tfs_06": 67.79531203176644,
+   "tfs_09": 77.18030169831711
+  },
+  "after_per_lens": {
+   "tfs_02": 73.63080026630779,
+   "tfs_06": 1.4167226560022648,
+   "tfs_09": 1.983292326146082
+  },
+  "crash": null,
+  "seconds": 2.2
+ },
+ {
+  "param": "misalignment",
+  "value": 7.5e-05,
+  "noise_seed": 1,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 7.5e-05,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 77.18030169831711,
+  "after_um": 73.63080026630779,
+  "before_per_lens": {
+   "tfs_02": 73.63080026630779,
+   "tfs_06": 67.79531203176644,
+   "tfs_09": 77.18030169831711
+  },
+  "after_per_lens": {
+   "tfs_02": 73.63080026630779,
+   "tfs_06": 1.2865979318283802,
+   "tfs_09": 2.0435841241423147
+  },
+  "crash": null,
+  "seconds": 2.2
+ },
+ {
+  "param": "misalignment",
+  "value": 7.5e-05,
+  "noise_seed": 2,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 7.5e-05,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 77.18030169831711,
+  "after_um": 73.63080026630779,
+  "before_per_lens": {
+   "tfs_02": 73.63080026630779,
+   "tfs_06": 67.79531203176644,
+   "tfs_09": 77.18030169831711
+  },
+  "after_per_lens": {
+   "tfs_02": 73.63080026630779,
+   "tfs_06": 1.4519262759876925,
+   "tfs_09": 2.0073497629574826
+  },
+  "crash": null,
+  "seconds": 2.2
+ },
+ {
+  "param": "misalignment",
+  "value": 0.0001,
+  "noise_seed": 0,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 0.0001,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 102.90706893108951,
+  "after_um": 98.17440035507707,
+  "before_per_lens": {
+   "tfs_02": 98.17440035507707,
+   "tfs_06": 90.39374937568861,
+   "tfs_09": 102.90706893108951
+  },
+  "after_per_lens": {
+   "tfs_02": 98.17440035507707,
+   "tfs_06": 3.0002285070241737,
+   "tfs_09": 1.103698378826023
+  },
+  "crash": null,
+  "seconds": 2.2
+ },
+ {
+  "param": "misalignment",
+  "value": 0.0001,
+  "noise_seed": 1,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 0.0001,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 102.90706893108951,
+  "after_um": 98.17440035507707,
+  "before_per_lens": {
+   "tfs_02": 98.17440035507707,
+   "tfs_06": 90.39374937568861,
+   "tfs_09": 102.90706893108951
+  },
+  "after_per_lens": {
+   "tfs_02": 98.17440035507707,
+   "tfs_06": 1.3832898259519142,
+   "tfs_09": 1.2272745851079696
+  },
+  "crash": null,
+  "seconds": 2.2
+ },
+ {
+  "param": "misalignment",
+  "value": 0.0001,
+  "noise_seed": 2,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 0.0001,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 102.90706893108951,
+  "after_um": 98.17440035507707,
+  "before_per_lens": {
+   "tfs_02": 98.17440035507707,
+   "tfs_06": 90.39374937568861,
+   "tfs_09": 102.90706893108951
+  },
+  "after_per_lens": {
+   "tfs_02": 98.17440035507707,
+   "tfs_06": 2.7345593161845416,
+   "tfs_09": 1.4473671108315247
+  },
+  "crash": null,
+  "seconds": 2.2
+ },
+ {
+  "param": "misalignment",
+  "value": 0.000125,
+  "noise_seed": 0,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 0.000125,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 128.6338361638619,
+  "after_um": 122.71800044384631,
+  "before_per_lens": {
+   "tfs_02": 122.71800044384631,
+   "tfs_06": 112.99218671961076,
+   "tfs_09": 128.6338361638619
+  },
+  "after_per_lens": {
+   "tfs_02": 122.71800044384631,
+   "tfs_06": 2.8697061464375193,
+   "tfs_09": 3.6717427896986212
+  },
+  "crash": null,
+  "seconds": 2.2
+ },
+ {
+  "param": "misalignment",
+  "value": 0.000125,
+  "noise_seed": 1,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 0.000125,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 128.6338361638619,
+  "after_um": 122.71800044384631,
+  "before_per_lens": {
+   "tfs_02": 122.71800044384631,
+   "tfs_06": 112.99218671961076,
+   "tfs_09": 128.6338361638619
+  },
+  "after_per_lens": {
+   "tfs_02": 122.71800044384631,
+   "tfs_06": 3.146915177327783,
+   "tfs_09": 3.5840275574539135
+  },
+  "crash": null,
+  "seconds": 2.2
+ },
+ {
+  "param": "misalignment",
+  "value": 0.000125,
+  "noise_seed": 2,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 0.000125,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 128.6338361638619,
+  "after_um": 122.71800044384631,
+  "before_per_lens": {
+   "tfs_02": 122.71800044384631,
+   "tfs_06": 112.99218671961076,
+   "tfs_09": 128.6338361638619
+  },
+  "after_per_lens": {
+   "tfs_02": 122.71800044384631,
+   "tfs_06": 3.312553116752567,
+   "tfs_09": 3.652928881272999
+  },
+  "crash": null,
+  "seconds": 2.2
+ },
+ {
+  "param": "misalignment",
+  "value": 0.00015,
+  "noise_seed": 0,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 0.00015,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 154.36060339663422,
+  "after_um": 147.26160053261557,
+  "before_per_lens": {
+   "tfs_02": 147.26160053261557,
+   "tfs_06": 135.59062406353289,
+   "tfs_09": 154.36060339663422
+  },
+  "after_per_lens": {
+   "tfs_02": 147.26160053261557,
+   "tfs_06": 4.2136169284885305,
+   "tfs_09": 1.1844536844680402
+  },
+  "crash": null,
+  "seconds": 2.2
+ },
+ {
+  "param": "misalignment",
+  "value": 0.00015,
+  "noise_seed": 1,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 0.00015,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 154.36060339663422,
+  "after_um": 147.26160053261557,
+  "before_per_lens": {
+   "tfs_02": 147.26160053261557,
+   "tfs_06": 135.59062406353289,
+   "tfs_09": 154.36060339663422
+  },
+  "after_per_lens": {
+   "tfs_02": 147.26160053261557,
+   "tfs_06": 2.805696603026654,
+   "tfs_09": 0.8724339599944549
+  },
+  "crash": null,
+  "seconds": 2.2
+ },
+ {
+  "param": "misalignment",
+  "value": 0.00015,
+  "noise_seed": 2,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 0.00015,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 154.36060339663422,
+  "after_um": 147.26160053261557,
+  "before_per_lens": {
+   "tfs_02": 147.26160053261557,
+   "tfs_06": 135.59062406353289,
+   "tfs_09": 154.36060339663422
+  },
+  "after_per_lens": {
+   "tfs_02": 147.26160053261557,
+   "tfs_06": 3.97894735789723,
+   "tfs_09": 1.3207252064817199
+  },
+  "crash": null,
+  "seconds": 2.2
+ },
+ {
+  "param": "misalignment",
+  "value": 0.000175,
+  "noise_seed": 0,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 0.000175,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 180.08737062940665,
+  "after_um": 171.80520062138484,
+  "before_per_lens": {
+   "tfs_02": 171.80520062138484,
+   "tfs_06": 158.18906140745503,
+   "tfs_09": 180.08737062940665
+  },
+  "after_per_lens": {
+   "tfs_02": 171.80520062138484,
+   "tfs_06": 1.3584066011364377,
+   "tfs_09": 1.6033471350986674
+  },
+  "crash": null,
+  "seconds": 2.2
+ },
+ {
+  "param": "misalignment",
+  "value": 0.000175,
+  "noise_seed": 1,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 0.000175,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 180.08737062940665,
+  "after_um": 171.80520062138484,
+  "before_per_lens": {
+   "tfs_02": 171.80520062138484,
+   "tfs_06": 158.18906140745503,
+   "tfs_09": 180.08737062940665
+  },
+  "after_per_lens": {
+   "tfs_02": 171.80520062138484,
+   "tfs_06": 2.690109254939965,
+   "tfs_09": 2.1096838450570794
+  },
+  "crash": null,
+  "seconds": 2.2
+ },
+ {
+  "param": "misalignment",
+  "value": 0.000175,
+  "noise_seed": 2,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 0.000175,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 180.08737062940665,
+  "after_um": 171.80520062138484,
+  "before_per_lens": {
+   "tfs_02": 171.80520062138484,
+   "tfs_06": 158.18906140745503,
+   "tfs_09": 180.08737062940665
+  },
+  "after_per_lens": {
+   "tfs_02": 171.80520062138484,
+   "tfs_06": 0.996668132165113,
+   "tfs_09": 1.944202474187915
+  },
+  "crash": null,
+  "seconds": 2.4
+ },
+ {
+  "param": "misalignment",
+  "value": 0.0002,
+  "noise_seed": 0,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 0.0002,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 205.81413786217902,
+  "after_um": 196.34880071015414,
+  "before_per_lens": {
+   "tfs_02": 196.34880071015414,
+   "tfs_06": 180.78749875137723,
+   "tfs_09": 205.81413786217902
+  },
+  "after_per_lens": {
+   "tfs_02": 196.34880071015414,
+   "tfs_06": 1.3375966923680744,
+   "tfs_09": 0.5934713993873802
+  },
+  "crash": null,
+  "seconds": 2.4
+ },
+ {
+  "param": "misalignment",
+  "value": 0.0002,
+  "noise_seed": 1,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 0.0002,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 205.81413786217902,
+  "after_um": 196.34880071015414,
+  "before_per_lens": {
+   "tfs_02": 196.34880071015414,
+   "tfs_06": 180.78749875137723,
+   "tfs_09": 205.81413786217902
+  },
+  "after_per_lens": {
+   "tfs_02": 196.34880071015414,
+   "tfs_06": 0.9611617579983368,
+   "tfs_09": 0.8681834827747218
+  },
+  "crash": null,
+  "seconds": 2.6
+ },
+ {
+  "param": "misalignment",
+  "value": 0.0002,
+  "noise_seed": 2,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 0.0002,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 205.81413786217902,
+  "after_um": 196.34880071015414,
+  "before_per_lens": {
+   "tfs_02": 196.34880071015414,
+   "tfs_06": 180.78749875137723,
+   "tfs_09": 205.81413786217902
+  },
+  "after_per_lens": {
+   "tfs_02": 196.34880071015414,
+   "tfs_06": 0.9495871153588566,
+   "tfs_09": 0.597062797766598
+  },
+  "crash": null,
+  "seconds": 2.4
+ },
+ {
+  "param": "misalignment",
+  "value": 0.00025,
+  "noise_seed": 0,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 0.00025,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 257.2676723277238,
+  "after_um": 245.43600088769261,
+  "before_per_lens": {
+   "tfs_02": 245.43600088769261,
+   "tfs_06": 225.9843734392215,
+   "tfs_09": 257.2676723277238
+  },
+  "after_per_lens": {
+   "tfs_02": 245.43600088769261,
+   "tfs_06": 2.8174020893813285,
+   "tfs_09": 0.6196202539241689
+  },
+  "crash": null,
+  "seconds": 2.6
+ },
+ {
+  "param": "misalignment",
+  "value": 0.00025,
+  "noise_seed": 1,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 0.00025,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 257.2676723277238,
+  "after_um": 245.43600088769261,
+  "before_per_lens": {
+   "tfs_02": 245.43600088769261,
+   "tfs_06": 225.9843734392215,
+   "tfs_09": 257.2676723277238
+  },
+  "after_per_lens": {
+   "tfs_02": 245.43600088769261,
+   "tfs_06": 3.5771974067877887,
+   "tfs_09": 0.6625176186257522
+  },
+  "crash": null,
+  "seconds": 2.6
+ },
+ {
+  "param": "misalignment",
+  "value": 0.00025,
+  "noise_seed": 2,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 0.00025,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 257.2676723277238,
+  "after_um": 245.43600088769261,
+  "before_per_lens": {
+   "tfs_02": 245.43600088769261,
+   "tfs_06": 225.9843734392215,
+   "tfs_09": 257.2676723277238
+  },
+  "after_per_lens": {
+   "tfs_02": 245.43600088769261,
+   "tfs_06": 0.819603555810229,
+   "tfs_09": 0.3397824524155369
+  },
+  "crash": null,
+  "seconds": 2.6
+ },
+ {
+  "param": "misalignment",
+  "value": 0.0003,
+  "noise_seed": 0,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 0.0003,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 308.72120679326844,
+  "after_um": 294.52320106523115,
+  "before_per_lens": {
+   "tfs_02": 294.52320106523115,
+   "tfs_06": 271.18124812706577,
+   "tfs_09": 308.72120679326844
+  },
+  "after_per_lens": {
+   "tfs_02": 294.52320106523115,
+   "tfs_06": 1.1926652353802785,
+   "tfs_09": 3.7704641372798573
+  },
+  "crash": null,
+  "seconds": 2.6
+ },
+ {
+  "param": "misalignment",
+  "value": 0.0003,
+  "noise_seed": 1,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 0.0003,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 308.72120679326844,
+  "after_um": 294.52320106523115,
+  "before_per_lens": {
+   "tfs_02": 294.52320106523115,
+   "tfs_06": 271.18124812706577,
+   "tfs_09": 308.72120679326844
+  },
+  "after_per_lens": {
+   "tfs_02": 294.52320106523115,
+   "tfs_06": 0.9855575710992805,
+   "tfs_09": 3.7449876942565963
+  },
+  "crash": null,
+  "seconds": 2.6
+ },
+ {
+  "param": "misalignment",
+  "value": 0.0003,
+  "noise_seed": 2,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 0.0003,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 308.72120679326844,
+  "after_um": 294.52320106523115,
+  "before_per_lens": {
+   "tfs_02": 294.52320106523115,
+   "tfs_06": 271.18124812706577,
+   "tfs_09": 308.72120679326844
+  },
+  "after_per_lens": {
+   "tfs_02": 294.52320106523115,
+   "tfs_06": 1.1279141524008256,
+   "tfs_09": 4.1605612265188165
+  },
+  "crash": null,
+  "seconds": 2.6
+ },
+ {
+  "param": "misalignment",
+  "value": 0.0004,
+  "noise_seed": 0,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 0.0004,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 411.62827572435805,
+  "after_um": 284.7805354331192,
+  "before_per_lens": {
+   "tfs_02": 392.6976014203083,
+   "tfs_06": 361.57499750275446,
+   "tfs_09": 411.62827572435805
+  },
+  "after_per_lens": {
+   "tfs_02": 284.7805354331192,
+   "tfs_06": 4.653269483364601,
+   "tfs_09": 2.517803315730199
+  },
+  "crash": null,
+  "seconds": 3.2
+ },
+ {
+  "param": "misalignment",
+  "value": 0.0004,
+  "noise_seed": 1,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 0.0004,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 411.62827572435805,
+  "after_um": 282.6616028480571,
+  "before_per_lens": {
+   "tfs_02": 392.6976014203083,
+   "tfs_06": 361.57499750275446,
+   "tfs_09": 411.62827572435805
+  },
+  "after_per_lens": {
+   "tfs_02": 282.6616028480571,
+   "tfs_06": 4.477252226115898,
+   "tfs_09": 1.7086925772590462
+  },
+  "crash": null,
+  "seconds": 3.2
+ },
+ {
+  "param": "misalignment",
+  "value": 0.0004,
+  "noise_seed": 2,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 0.0004,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 411.62827572435805,
+  "after_um": 286.70755532974584,
+  "before_per_lens": {
+   "tfs_02": 392.6976014203083,
+   "tfs_06": 361.57499750275446,
+   "tfs_09": 411.62827572435805
+  },
+  "after_per_lens": {
+   "tfs_02": 286.70755532974584,
+   "tfs_06": 3.870463913526762,
+   "tfs_09": 1.2804410759214468
+  },
+  "crash": null,
+  "seconds": 3.2
+ },
+ {
+  "param": "misalignment",
+  "value": 0.0005,
+  "noise_seed": 0,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 0.0005,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 514.5353446554476,
+  "after_um": 223.47078471886084,
+  "before_per_lens": {
+   "tfs_02": 490.87200177538523,
+   "tfs_06": 451.968746878443,
+   "tfs_09": 514.5353446554476
+  },
+  "after_per_lens": {
+   "tfs_02": 223.47078471886084,
+   "tfs_06": 1.4611447718092925,
+   "tfs_09": 59.97095845024022
+  },
+  "crash": null,
+  "seconds": 4.4
+ },
+ {
+  "param": "misalignment",
+  "value": 0.0005,
+  "noise_seed": 1,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 0.0005,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 514.5353446554476,
+  "after_um": 223.47078471886084,
+  "before_per_lens": {
+   "tfs_02": 490.87200177538523,
+   "tfs_06": 451.968746878443,
+   "tfs_09": 514.5353446554476
+  },
+  "after_per_lens": {
+   "tfs_02": 223.47078471886084,
+   "tfs_06": 1.9239606269429927,
+   "tfs_09": 61.04368407391407
+  },
+  "crash": null,
+  "seconds": 4.3
+ },
+ {
+  "param": "misalignment",
+  "value": 0.0005,
+  "noise_seed": 2,
+  "inputs": {
+   "E0": 9500,
+   "N": 256,
+   "misalignment": 0.0005,
+   "seed": 3
+  },
+  "camera": "DG2_YAG",
+  "method": "ring_only",
+  "lenses": [
+   "tfs_02",
+   "tfs_06",
+   "tfs_09"
+  ],
+  "before_um": 514.5353446554476,
+  "after_um": 223.47078471886084,
+  "before_per_lens": {
+   "tfs_02": 490.87200177538523,
+   "tfs_06": 451.968746878443,
+   "tfs_09": 514.5353446554476
+  },
+  "after_per_lens": {
+   "tfs_02": 223.47078471886084,
+   "tfs_06": 1.5944490653994379,
+   "tfs_09": 72.68896139018634
+  },
+  "crash": null,
+  "seconds": 4.3
+ }
+]

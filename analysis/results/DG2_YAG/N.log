@@ -1,0 +1,5 @@
+N=128 noise=0: worst 51.5 -> 18.2 um (3.9 s)
+N=192 noise=0: worst 51.5 -> 3.1 um (6.0 s)
+N=256 noise=0: worst 51.5 -> 3.9 um (10.1 s)
+N=384 noise=0: worst 51.5 -> 4.6 um (22.3 s)
+N=512 noise=0: worst 51.5 -> 2.8 um (42.6 s)
